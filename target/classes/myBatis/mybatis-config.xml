@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>  
+		<typeAlias type="model.UserVO" alias="uVo"/> 
+		<typeAlias type="model.BoardVO" alias="bVo"/> 
+	</typeAliases>
+	
+<!-- DB 연결정보 설정 - 마이바티즈와 자동연결 (나중에 이부분은 스프링 설정파일 root-context.xml파일로 이동하게 된다.)-->
+  <environments default="development">
+    <environment id="development">
+      <transactionManager type="JDBC"/>
+      <dataSource type="POOLED">
+        <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/mvc1"/>
+        <property name="username" value="ghp"/>
+        <property name="password" value="12345"/>
+      </dataSource>
+    </environment>
+  </environments>  
+ 
+  <mappers>  
+    <mapper resource="myBatis/mapper/UserMapper.xml"/>
+    <mapper resource="myBatis/mapper/BoardMapper.xml"/>    
+  </mappers>
+</configuration>
